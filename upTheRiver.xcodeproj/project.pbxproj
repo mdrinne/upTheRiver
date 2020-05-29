@@ -19,6 +19,8 @@
 		23989124248095CB001EDF78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23989120248095CB001EDF78 /* LoginViewController.swift */; };
 		23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23989121248095CB001EDF78 /* SignUpViewController.swift */; };
 		23989129248096BB001EDF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23989128248096BB001EDF78 /* Main.storyboard */; };
+		2398912D2480CBA4001EDF78 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */; };
+		239891302480D50C001EDF78 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398912F2480D50C001EDF78 /* AddFriendTableViewCell.swift */; };
 		317ECAE758FDE382926C48E5 /* Pods_upTheRiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58520D13B1D3741D5599DC4D /* Pods_upTheRiver.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		23989120248095CB001EDF78 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		23989121248095CB001EDF78 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		23989128248096BB001EDF78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		2398912F2480D50C001EDF78 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		58520D13B1D3741D5599DC4D /* Pods_upTheRiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_upTheRiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6788A69D35A354EFD6B36A13 /* Pods-upTheRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upTheRiver.debug.xcconfig"; path = "Target Support Files/Pods-upTheRiver/Pods-upTheRiver.debug.xcconfig"; sourceTree = "<group>"; };
 		72F8DC488BAB06433C336675 /* Pods-upTheRiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upTheRiver.release.xcconfig"; path = "Target Support Files/Pods-upTheRiver/Pods-upTheRiver.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		239890F224808EC0001EDF78 /* upTheRiver */ = {
 			isa = PBXGroup;
 			children = (
+				2398912E2480D4AE001EDF78 /* Table Cells */,
 				2398911224808FEA001EDF78 /* Helpers */,
 				2398910924808FD4001EDF78 /* View Controllers */,
 				239890F324808EC0001EDF78 /* AppDelegate.swift */,
@@ -104,6 +109,7 @@
 				23989120248095CB001EDF78 /* LoginViewController.swift */,
 				23989121248095CB001EDF78 /* SignUpViewController.swift */,
 				2398911E248095CB001EDF78 /* ViewController.swift */,
+				2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -115,6 +121,14 @@
 				2398911B248095B4001EDF78 /* Utilities.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2398912E2480D4AE001EDF78 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2398912F2480D50C001EDF78 /* AddFriendTableViewCell.swift */,
+			);
+			path = "Table Cells";
 			sourceTree = "<group>";
 		};
 		75252F76FA03D31B8CCF43B5 /* Frameworks */ = {
@@ -242,8 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				23989124248095CB001EDF78 /* LoginViewController.swift in Sources */,
+				239891302480D50C001EDF78 /* AddFriendTableViewCell.swift in Sources */,
 				23989122248095CB001EDF78 /* ViewController.swift in Sources */,
 				23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */,
+				2398912D2480CBA4001EDF78 /* AddFriendViewController.swift in Sources */,
 				239890F424808EC0001EDF78 /* AppDelegate.swift in Sources */,
 				239890F624808EC0001EDF78 /* SceneDelegate.swift in Sources */,
 				2398911D248095B4001EDF78 /* Utilities.swift in Sources */,

@@ -48,6 +48,15 @@ class Utilities {
         button.tintColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1)
     }
     
+    static func styleHollowSmallButton(_ button:UIButton) {
+        
+        // Hollow rounded corner style
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1).cgColor
+        button.layer.cornerRadius = 15.0
+        button.tintColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1)
+    }
+    
     static func styleLabelPrimary(  label:UILabel) {
         
         label.textColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1)
