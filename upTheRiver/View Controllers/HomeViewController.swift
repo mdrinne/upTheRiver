@@ -18,12 +18,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var createTableButton: UIButton!
     
-    @IBOutlet weak var rideTheBusLabel: UILabel!
+    @IBOutlet weak var upTheRiverLabel: UILabel!
     
     @IBOutlet weak var friendsTableView: UITableView!
     
     @IBOutlet weak var addFriendButton: UIButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
         Utilities.styleFilledButton(createTableButton)
         Utilities.styleFilledButton(joinTableButton)
         Utilities.styleHollowButton(addFriendButton)
-        Utilities.styleLabelPrimary(label: rideTheBusLabel)
+        Utilities.styleLabelPrimary(label: upTheRiverLabel)
     }
     
     @IBAction func signOutTapped(_ sender: Any) {
@@ -49,6 +49,11 @@ class HomeViewController: UIViewController {
         } catch let err {
             print(err)
         }
+    }
+    
+    @IBAction func addFriendTapped(_ sender: Any) {
+        
+        performSegue(withIdentifier: "addFriend", sender: self)
     }
     
 }
