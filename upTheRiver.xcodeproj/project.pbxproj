@@ -17,7 +17,6 @@
 		2398911D248095B4001EDF78 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398911B248095B4001EDF78 /* Utilities.swift */; };
 		23989122248095CB001EDF78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398911E248095CB001EDF78 /* ViewController.swift */; };
 		23989123248095CB001EDF78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398911F248095CB001EDF78 /* HomeViewController.swift */; };
-		23989124248095CB001EDF78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23989120248095CB001EDF78 /* LoginViewController.swift */; };
 		23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23989121248095CB001EDF78 /* SignUpViewController.swift */; };
 		23989129248096BB001EDF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23989128248096BB001EDF78 /* Main.storyboard */; };
 		2398912D2480CBA4001EDF78 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */; };
@@ -38,7 +37,6 @@
 		2398911B248095B4001EDF78 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2398911E248095CB001EDF78 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2398911F248095CB001EDF78 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		23989120248095CB001EDF78 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		23989121248095CB001EDF78 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		23989128248096BB001EDF78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				2398911F248095CB001EDF78 /* HomeViewController.swift */,
-				23989120248095CB001EDF78 /* LoginViewController.swift */,
 				23989121248095CB001EDF78 /* SignUpViewController.swift */,
 				2398911E248095CB001EDF78 /* ViewController.swift */,
 				2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */,
@@ -266,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23989124248095CB001EDF78 /* LoginViewController.swift in Sources */,
 				239891302480D50C001EDF78 /* AddFriendTableViewCell.swift in Sources */,
 				23989122248095CB001EDF78 /* ViewController.swift in Sources */,
 				23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */,

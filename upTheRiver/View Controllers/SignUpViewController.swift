@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController {
                 print("Error querying user documents: \(error!.localizedDescription)")
             } else {
                 for document in querySnapshot!.documents {
-                    usernames.append(document.get("username") as! String)
+                    usernames.append((document.get("username") as! String).lowercased())
                 }
             }
         }
@@ -79,8 +79,8 @@ class SignUpViewController: UIViewController {
         }
         
         
-        if usernames.contains(usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)) {
-            
+        if usernames.contains((usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)).lowercased()) {
+
             return "Username already exists."
         }
 

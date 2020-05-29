@@ -303,6 +303,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="gXG-Pb-ku2" id="DMZ-Yd-D0n"/>
+                                    </connections>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Add Friend Table View Cell" rowHeight="68" id="M4i-sf-QM6" customClass="AddFriendTableViewCell" customModule="upTheRiver" customModuleProvider="target">
@@ -370,7 +373,7 @@
                     <navigationItem key="navigationItem" id="RKc-S5-lr1"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="UserSearchBar" destination="NZt-Ft-kzs" id="bSF-Yw-sCp"/>
+                        <outlet property="addFriendSearchBar" destination="NZt-Ft-kzs" id="z44-yQ-YJM"/>
                         <outlet property="addFriendsTableView" destination="Ksd-af-VpY" id="3yg-GS-nfV"/>
                     </connections>
                 </viewController>
