@@ -8,25 +8,24 @@
 
 import UIKit
 
-protocol TableViewAddFriend{
-    func onClickAdd(index: Int)
-}
-
 class AddFriendTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var userFullNameLabel: UILabel!
     
-    @IBOutlet weak var addFriendFullNameLabel: UILabel!
+    @IBOutlet weak var userUsernameLabal: UILabel!
     
-    @IBOutlet weak var addFriendUsernameLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
         
-    @IBOutlet weak var addFriendAddButton: UIButton!
-    
-    var cellDelegate: TableViewAddFriend?
-    
-    var index: IndexPath?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        setUpElements()
+    }
+    
+    private func setUpElements() {
+        
+        Utilities.styleLabelPrimary(label: userFullNameLabel)
+        Utilities.styleLabelPrimary(label: userUsernameLabal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,8 +33,5 @@ class AddFriendTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @IBAction func addFriendAddButtonTapped(_ sender: Any) {
-        cellDelegate?.onClickAdd(index: (index?.row)!)
-    }
+
 }

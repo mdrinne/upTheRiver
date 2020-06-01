@@ -62,5 +62,24 @@ class Utilities {
         label.textColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1)
         
     }
+    
+    static func styleLabelWhite(  label:UILabel) {
+        label.textColor = UIColor.white
+    }
+    
+    static func styleSearchBar(  searchBar:UISearchBar) {
+        
+        searchBar.barTintColor = UIColor.init(white: 0.13, alpha: 1)
+        searchBar.searchTextField.textColor = UIColor.white
+        let textField = searchBar.value(forKey: "searchField") as! UITextField
+        
+        let glassIconView = textField.leftView as! UIImageView
+        glassIconView.image = glassIconView.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        glassIconView.tintColor = UIColor.white
+    }
+    
+    static func styleTableViewCell(  tableViewCell:UITableViewCell) {
+        tableViewCell.backgroundColor = UIColor.init(white: 0.13, alpha: 1)
+    }
 
 }

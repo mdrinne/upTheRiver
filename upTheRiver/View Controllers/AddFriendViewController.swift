@@ -16,14 +16,24 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var addFriendSearchBar: UISearchBar!
     
-    var addFriendArray = [AddFriend]()
-    var currentAddFriendArray = [AddFriend]()
+    @IBOutlet weak var addFriendsLabel: UILabel!
+        
+    var addFriendArray = [User]()
+    var currentAddFriendArray = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpElements()
         queryUsers()
         setUpSearchBar()
+    }
+    
+    private func setUpElements() {
+        
+        Utilities.styleLabelPrimary(label: addFriendsLabel)
+        Utilities.styleSearchBar(searchBar: addFriendSearchBar)
+        
     }
     
     private func queryUsers() {
@@ -35,16 +45,18 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
             } else {
                 for document in querySnapshot!.documents {
                     if Auth.auth().currentUser?.uid != (document.get("uid") as! String) {
-                        self.addFriendArray.append(AddFriend(fullName: document.get("fullName") as! String, username: document.get("username") as! String))
+                        self.addFriendArray.append(User(fullName: document.get("fullName") as! String, username: document.get("username") as! String,uid: document.get("uid") as! String))
+                        self.addFriendsTableView.reloadData()
                     }
                 }
-                self.currentAddFriendArray = self.addFriendArray
-                self.addFriendsTableView.reloadData()
+//                self.addFriendsTableView.reloadData()
             }
         }
     }
     
     private func setUpSearchBar() {
+        let nib = UINib(nibName: "AddFriendTableViewCell", bundle: nil)
+        addFriendsTableView.register(nib, forCellReuseIdentifier: "AddFriendTableViewCell")
         addFriendSearchBar.delegate = self
     }
     
@@ -53,18 +65,20 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Add Friend Table View Cell") as? AddFriendTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddFriendTableViewCell", for: indexPath) as? AddFriendTableViewCell else {
             return UITableViewCell()
         }
-        cell.userFullNameLabel.text = currentAddFriendArray[indexPath.row].fullName
-        cell.userUsernameLabal.text = currentAddFriendArray[indexPath.row].username
+        cell.addFriendFullNameLabel.text = currentAddFriendArray[indexPath.row].fullName
+        cell.addFriendUsernameLabel.text = currentAddFriendArray[indexPath.row].username
+        cell.cellDelegate = self
+        cell.index = indexPath
         
         return cell
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            currentAddFriendArray = addFriendArray
+            currentAddFriendArray = [User]()
             addFriendsTableView.reloadData()
             return
         }
@@ -81,4 +95,15 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
     
 }
 
-
+extension AddFriendViewController: TableViewAddFriend {
+    func onClickAdd(index: Int) {
+        let db = Firestore.firestore()
+        
+        let addUser = currentAddFriendArray[index]
+        db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").document(addUser.uid).setData(["fullName": addUser.fullName, "username": addUser.username, "uid": addUser.uid])
+        
+        addFriendArray.remove(at: addFriendArray.firstIndex(where: {$0 === addUser})!)
+        currentAddFriendArray.remove(at: index)
+        addFriendsTableView.reloadData()
+    }
+}

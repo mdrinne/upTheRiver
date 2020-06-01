@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		238B28CD248161B0005C1419 /* AddFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B28CC248161B0005C1419 /* AddFriend.swift */; };
+		238B28CD248161B0005C1419 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B28CC248161B0005C1419 /* Friend.swift */; };
+		238B28D024817F24005C1419 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B28CE24817F24005C1419 /* AddFriendTableViewCell.swift */; };
+		238B28D124817F24005C1419 /* AddFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238B28CF24817F24005C1419 /* AddFriendTableViewCell.xib */; };
 		239890F424808EC0001EDF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239890F324808EC0001EDF78 /* AppDelegate.swift */; };
 		239890F624808EC0001EDF78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239890F524808EC0001EDF78 /* SceneDelegate.swift */; };
 		239890FD24808EC1001EDF78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239890FC24808EC1001EDF78 /* Assets.xcassets */; };
@@ -20,12 +22,14 @@
 		23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23989121248095CB001EDF78 /* SignUpViewController.swift */; };
 		23989129248096BB001EDF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23989128248096BB001EDF78 /* Main.storyboard */; };
 		2398912D2480CBA4001EDF78 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */; };
-		239891302480D50C001EDF78 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398912F2480D50C001EDF78 /* AddFriendTableViewCell.swift */; };
+		23BC7A4A24837DC400A52C3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BC7A4924837DC400A52C3C /* User.swift */; };
 		317ECAE758FDE382926C48E5 /* Pods_upTheRiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58520D13B1D3741D5599DC4D /* Pods_upTheRiver.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		238B28CC248161B0005C1419 /* AddFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriend.swift; sourceTree = "<group>"; };
+		238B28CC248161B0005C1419 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		238B28CE24817F24005C1419 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
+		238B28CF24817F24005C1419 /* AddFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendTableViewCell.xib; sourceTree = "<group>"; };
 		239890F024808EC0001EDF78 /* upTheRiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = upTheRiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239890F324808EC0001EDF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		239890F524808EC0001EDF78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +44,7 @@
 		23989121248095CB001EDF78 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		23989128248096BB001EDF78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
-		2398912F2480D50C001EDF78 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
+		23BC7A4924837DC400A52C3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		58520D13B1D3741D5599DC4D /* Pods_upTheRiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_upTheRiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6788A69D35A354EFD6B36A13 /* Pods-upTheRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upTheRiver.debug.xcconfig"; path = "Target Support Files/Pods-upTheRiver/Pods-upTheRiver.debug.xcconfig"; sourceTree = "<group>"; };
 		72F8DC488BAB06433C336675 /* Pods-upTheRiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-upTheRiver.release.xcconfig"; path = "Target Support Files/Pods-upTheRiver/Pods-upTheRiver.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +74,8 @@
 		238B28CB24816122005C1419 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				238B28CC248161B0005C1419 /* AddFriend.swift */,
+				238B28CC248161B0005C1419 /* Friend.swift */,
+				23BC7A4924837DC400A52C3C /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,7 +139,8 @@
 		2398912E2480D4AE001EDF78 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2398912F2480D50C001EDF78 /* AddFriendTableViewCell.swift */,
+				238B28CE24817F24005C1419 /* AddFriendTableViewCell.swift */,
+				238B28CF24817F24005C1419 /* AddFriendTableViewCell.xib */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2398910024808EC1001EDF78 /* LaunchScreen.storyboard in Resources */,
+				238B28D124817F24005C1419 /* AddFriendTableViewCell.xib in Resources */,
 				2398910824808F08001EDF78 /* GoogleService-Info.plist in Resources */,
 				239890FD24808EC1001EDF78 /* Assets.xcassets in Resources */,
 				23989129248096BB001EDF78 /* Main.storyboard in Resources */,
@@ -263,16 +270,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				239891302480D50C001EDF78 /* AddFriendTableViewCell.swift in Sources */,
 				23989122248095CB001EDF78 /* ViewController.swift in Sources */,
+				238B28D024817F24005C1419 /* AddFriendTableViewCell.swift in Sources */,
 				23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */,
 				2398912D2480CBA4001EDF78 /* AddFriendViewController.swift in Sources */,
-				238B28CD248161B0005C1419 /* AddFriend.swift in Sources */,
+				238B28CD248161B0005C1419 /* Friend.swift in Sources */,
 				239890F424808EC0001EDF78 /* AppDelegate.swift in Sources */,
 				239890F624808EC0001EDF78 /* SceneDelegate.swift in Sources */,
 				2398911D248095B4001EDF78 /* Utilities.swift in Sources */,
 				2398911C248095B4001EDF78 /* Constants.swift in Sources */,
 				23989123248095CB001EDF78 /* HomeViewController.swift in Sources */,
+				23BC7A4A24837DC400A52C3C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

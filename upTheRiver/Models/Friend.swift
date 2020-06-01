@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AddFriend {
+class Friend {
     
     let fullName: String
     let username: String
