@@ -1,9 +1,9 @@
 //
 //  SignUpViewController.swift
-//  CustomLoginDemo
+//  upTheRiver
 //
-//  Created by Christopher Ching on 2019-07-22.
-//  Copyright © 2019 Christopher Ching. All rights reserved.
+//  Created by Matthew Rinne on 5/28/20.
+//  Copyright © 2020 Matthew Rinne. All rights reserved.
 //
 
 import UIKit

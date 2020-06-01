@@ -21,6 +21,8 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
     var addFriendArray = [User]()
     var currentAddFriendArray = [User]()
     
+    var currentUserFriends = [User]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

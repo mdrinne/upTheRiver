@@ -208,6 +208,9 @@
                                             <constraint firstAttribute="height" constant="40" id="ziN-B5-rPY"/>
                                         </constraints>
                                         <state key="normal" title="Create Table"/>
+                                        <connections>
+                                            <action selector="createTableTapped:" destination="okz-eu-ox2" eventType="touchUpInside" id="4cq-Uw-pcX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -224,17 +227,17 @@
                                 <rect key="frame" x="0.0" y="119" width="414" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oLj-h3-Igj">
-                                        <rect key="frame" x="40" y="176.5" width="334" height="250"/>
+                                        <rect key="frame" x="40" y="151.5" width="334" height="300"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Of7-5z-IPd">
-                                                <rect key="frame" x="0.0" y="0.0" width="334" height="200"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="250"/>
+                                                <color key="backgroundColor" white="0.16" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="Ywi-ea-DFE"/>
+                                                    <constraint firstAttribute="height" constant="250" id="Ywi-ea-DFE"/>
                                                 </constraints>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tz-pF-MOJ">
-                                                <rect key="frame" x="0.0" y="210" width="334" height="40"/>
+                                                <rect key="frame" x="0.0" y="260" width="334" height="40"/>
                                                 <state key="normal" title="Add Friend"/>
                                                 <connections>
                                                     <action selector="addFriendTapped:" destination="okz-eu-ox2" eventType="touchUpInside" id="k67-o9-VMM"/>
@@ -281,6 +284,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yx8-qb-WeO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2536" y="138"/>
+        </scene>
+        <!--Create Table Pop Up View Controller-->
+        <scene sceneID="spu-WC-jWS">
+            <objects>
+                <viewController storyboardIdentifier="CreateTablePopUpViewController" id="Sya-wR-jrG" customClass="CreateTablePopUpViewController" customModule="upTheRiver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zul-UC-vQU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rI3-EH-l3u">
+                                <rect key="frame" x="30" y="318" width="354" height="260"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Table Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFu-NN-Bvn">
+                                        <rect key="frame" x="20" y="45" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8JU-td-3Wl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Nickname (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUb-EW-alR">
+                                        <rect key="frame" x="20" y="110" width="314" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="GwS-av-Tdi">
+                                        <rect key="frame" x="20" y="175" width="324" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48T-qx-LYE">
+                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="40"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelTapped:" destination="Sya-wR-jrG" eventType="touchUpInside" id="jJY-hR-T7y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIV-BO-PpZ">
+                                                <rect key="frame" x="174.5" y="0.0" width="149.5" height="40"/>
+                                                <state key="normal" title="Create"/>
+                                                <connections>
+                                                    <action selector="createTapped:" destination="Sya-wR-jrG" eventType="touchUpInside" id="3ij-Cl-Fmb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qIV-BO-PpZ" firstAttribute="width" secondItem="48T-qx-LYE" secondAttribute="width" id="Jo1-9Y-Cyp"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="48T-qx-LYE" firstAttribute="height" secondItem="OUb-EW-alR" secondAttribute="height" id="0T7-Sf-52e"/>
+                                    <constraint firstItem="UFu-NN-Bvn" firstAttribute="top" secondItem="rI3-EH-l3u" secondAttribute="top" constant="45" id="0qp-ix-CXj"/>
+                                    <constraint firstAttribute="trailing" secondItem="UFu-NN-Bvn" secondAttribute="trailing" constant="20" id="Jlm-BV-3eT"/>
+                                    <constraint firstItem="UFu-NN-Bvn" firstAttribute="leading" secondItem="rI3-EH-l3u" secondAttribute="leading" constant="20" id="TWX-nj-6k2"/>
+                                    <constraint firstItem="qIV-BO-PpZ" firstAttribute="height" secondItem="OUb-EW-alR" secondAttribute="height" id="U2w-sX-Sx9"/>
+                                    <constraint firstItem="OUb-EW-alR" firstAttribute="top" secondItem="UFu-NN-Bvn" secondAttribute="bottom" constant="25" id="VYc-II-vwU"/>
+                                    <constraint firstItem="OUb-EW-alR" firstAttribute="leading" secondItem="rI3-EH-l3u" secondAttribute="leading" constant="20" id="bRX-6p-or7"/>
+                                    <constraint firstAttribute="bottom" secondItem="GwS-av-Tdi" secondAttribute="bottom" constant="45" id="k9z-RO-JnB"/>
+                                    <constraint firstItem="OUb-EW-alR" firstAttribute="height" secondItem="UFu-NN-Bvn" secondAttribute="height" id="lJ8-Et-p0e"/>
+                                    <constraint firstAttribute="trailing" secondItem="GwS-av-Tdi" secondAttribute="trailing" constant="10" id="nbc-Yp-aUX"/>
+                                    <constraint firstItem="GwS-av-Tdi" firstAttribute="leading" secondItem="rI3-EH-l3u" secondAttribute="leading" constant="20" id="p6h-13-udp"/>
+                                    <constraint firstItem="GwS-av-Tdi" firstAttribute="top" secondItem="OUb-EW-alR" secondAttribute="bottom" constant="25" id="rQy-ai-pP1"/>
+                                    <constraint firstAttribute="trailing" secondItem="OUb-EW-alR" secondAttribute="trailing" constant="20" id="tDB-MT-KBI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rI3-EH-l3u" firstAttribute="centerX" secondItem="Zul-UC-vQU" secondAttribute="centerX" id="6QC-XY-wjJ"/>
+                            <constraint firstItem="VME-0E-Foi" firstAttribute="trailing" secondItem="rI3-EH-l3u" secondAttribute="trailing" constant="30" id="MzJ-wf-NpO"/>
+                            <constraint firstItem="rI3-EH-l3u" firstAttribute="leading" secondItem="VME-0E-Foi" secondAttribute="leading" constant="30" id="SIQ-bL-16T"/>
+                            <constraint firstItem="rI3-EH-l3u" firstAttribute="centerY" secondItem="Zul-UC-vQU" secondAttribute="centerY" id="jAe-kr-YUW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VME-0E-Foi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kBu-Cd-Kku"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="48T-qx-LYE" id="Fpu-Pz-dSR"/>
+                        <outlet property="createButton" destination="qIV-BO-PpZ" id="9Ff-NT-Z6a"/>
+                        <outlet property="popUpView" destination="rI3-EH-l3u" id="FL3-iw-1fD"/>
+                        <outlet property="tableNameTextField" destination="UFu-NN-Bvn" id="4fg-4E-PWZ"/>
+                        <outlet property="userNicknameTextField" destination="OUb-EW-alR" id="Mkf-yd-5WS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptR-OD-6wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2536" y="854"/>
         </scene>
         <!--Add Friend View Controller-->
         <scene sceneID="9zt-os-DhE">

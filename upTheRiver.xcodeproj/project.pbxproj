@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2321A0BA24855BFD00CDF611 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321A0B824855BFD00CDF611 /* FriendTableViewCell.swift */; };
+		2321A0BB24855BFD00CDF611 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2321A0B924855BFD00CDF611 /* FriendTableViewCell.xib */; };
+		2321A0BD24857AD500CDF611 /* CreateTablePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321A0BC24857AD500CDF611 /* CreateTablePopUpViewController.swift */; };
 		238B28CD248161B0005C1419 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B28CC248161B0005C1419 /* Friend.swift */; };
 		238B28D024817F24005C1419 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238B28CE24817F24005C1419 /* AddFriendTableViewCell.swift */; };
 		238B28D124817F24005C1419 /* AddFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238B28CF24817F24005C1419 /* AddFriendTableViewCell.xib */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2321A0B824855BFD00CDF611 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		2321A0B924855BFD00CDF611 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		2321A0BC24857AD500CDF611 /* CreateTablePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTablePopUpViewController.swift; sourceTree = "<group>"; };
 		238B28CC248161B0005C1419 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		238B28CE24817F24005C1419 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		238B28CF24817F24005C1419 /* AddFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendTableViewCell.xib; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 				23989121248095CB001EDF78 /* SignUpViewController.swift */,
 				2398911E248095CB001EDF78 /* ViewController.swift */,
 				2398912C2480CBA4001EDF78 /* AddFriendViewController.swift */,
+				2321A0BC24857AD500CDF611 /* CreateTablePopUpViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -141,6 +148,8 @@
 			children = (
 				238B28CE24817F24005C1419 /* AddFriendTableViewCell.swift */,
 				238B28CF24817F24005C1419 /* AddFriendTableViewCell.xib */,
+				2321A0B824855BFD00CDF611 /* FriendTableViewCell.swift */,
+				2321A0B924855BFD00CDF611 /* FriendTableViewCell.xib */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2398910024808EC1001EDF78 /* LaunchScreen.storyboard in Resources */,
+				2321A0BB24855BFD00CDF611 /* FriendTableViewCell.xib in Resources */,
 				238B28D124817F24005C1419 /* AddFriendTableViewCell.xib in Resources */,
 				2398910824808F08001EDF78 /* GoogleService-Info.plist in Resources */,
 				239890FD24808EC1001EDF78 /* Assets.xcassets in Resources */,
@@ -273,7 +283,9 @@
 				23989122248095CB001EDF78 /* ViewController.swift in Sources */,
 				238B28D024817F24005C1419 /* AddFriendTableViewCell.swift in Sources */,
 				23989125248095CB001EDF78 /* SignUpViewController.swift in Sources */,
+				2321A0BA24855BFD00CDF611 /* FriendTableViewCell.swift in Sources */,
 				2398912D2480CBA4001EDF78 /* AddFriendViewController.swift in Sources */,
+				2321A0BD24857AD500CDF611 /* CreateTablePopUpViewController.swift in Sources */,
 				238B28CD248161B0005C1419 /* Friend.swift in Sources */,
 				239890F424808EC0001EDF78 /* AppDelegate.swift in Sources */,
 				239890F624808EC0001EDF78 /* SceneDelegate.swift in Sources */,
