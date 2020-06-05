@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftSocket
+import FirebaseAuth
 
 class CreateTablePopUpViewController: UIViewController {
 
@@ -48,7 +50,57 @@ class CreateTablePopUpViewController: UIViewController {
     }
     
     @IBAction func createTapped(_ sender: Any) {
+        let tableName = tableNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let client = TCPClient(address: "localhost", port: 25000)
         
+        switch client.connect(timeout: 10) {
+        case .success:
+            print("connection success")
+            let createTableMessage = "createTable;\(tableName);\(Auth.auth().currentUser!.uid)"
+            switch client.send(string: createTableMessage) {
+            case .success:
+                print("sent message to server successfully")
+                guard let data = client.read(64, timeout: 10) else {
+                    print("read from server failed")
+                    client.close()
+                    return
+                }
+                if let response = String(bytes: data, encoding: .utf8) {
+                    let responseArray = response.split(separator: ";")
+                    
+                    switch responseArray[0] {
+                    case "newTablePort":
+                        print(responseArray[1])
+                        client.close()
+                        transitionToTable(port: String(responseArray[1]))
+                        
+                    case "noOpenPort":
+                        // Add toast here!!!!!!!!!!!!!!!!!!!!!!!!
+                        print("no open ports at this time")
+                        client.close()
+                        
+                    default:
+                        print(response)
+                        client.close()
+                    }
+                }
+            case .failure(_):
+                print("failed to send message to server")
+                client.close()
+            }
+            
+        case .failure(_):
+            print("connection failed")
+        }
+        
+    }
+    
+    func transitionToTable(port: String) {
+        let tableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewController) as? TableViewController
+        
+        tableViewController?.port = port
+        view.window?.rootViewController = tableViewController
+        view.window?.makeKeyAndVisible()
     }
     
 }

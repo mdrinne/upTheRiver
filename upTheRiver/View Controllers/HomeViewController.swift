@@ -52,7 +52,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Error querying users friend documents: \(error!.localizedDescription)")
             } else {
                 for document in querySnapshot!.documents {
-                    self.friendsArray.append(User(fullName: document.get("fullName") as! String, username: document.get("username") as! String, uid: document.get("uid") as! String))
+                    self.friendsArray.append(User(fullName: document.get("fullName") as! String, username: document.get("username") as! String, uid: document.get("uid") as! String, inGame: 0))
                     self.friendsTableView.reloadData()
                 }
             }

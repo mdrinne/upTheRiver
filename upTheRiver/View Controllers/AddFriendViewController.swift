@@ -47,7 +47,7 @@ class AddFriendViewController: UIViewController, UITableViewDataSource, UITableV
             } else {
                 for document in querySnapshot!.documents {
                     if Auth.auth().currentUser?.uid != (document.get("uid") as! String) {
-                        self.addFriendArray.append(User(fullName: document.get("fullName") as! String, username: document.get("username") as! String,uid: document.get("uid") as! String))
+                        self.addFriendArray.append(User(fullName: document.get("fullName") as! String, username: document.get("username") as! String,uid: document.get("uid") as! String, inGame: 0))
                         self.addFriendsTableView.reloadData()
                     }
                 }

@@ -13,10 +13,12 @@ class User {
     let fullName: String
     let username: String
     let uid: String
+    let inGame: Int
     
-    init(fullName: String, username: String, uid: String) {
+    init(fullName: String, username: String, uid: String, inGame: Int) {
         self.fullName = fullName
         self.username = username
         self.uid = uid
+        self.inGame = inGame
     }
 }

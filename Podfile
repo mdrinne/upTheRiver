@@ -10,5 +10,6 @@ target 'upTheRiver' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'SwiftSocket'
 
 end
