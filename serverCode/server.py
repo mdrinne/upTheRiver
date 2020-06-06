@@ -3,8 +3,9 @@
 
 import socket
 import sys
-import threading
+from threading import Thread
 from gameHandler import gameInstance
+from Table import Table
 
 
 availablePorts = [25001,25002,25003,25004,25005,25006,25007,25008,25009,25010,25011,25012,25013,25014,25015]
@@ -45,6 +46,8 @@ while True:
                         gamePort = availablePorts.pop()
                         availablePortsCount -= 1
                         msg = "newTablePort;" + str(gamePort)
+                        thread = Thread(target=gameInstance, name=data_split[1] + ": " + str(gamePort), kwargs=dict(owner=data_split[2], name=data_split[1], port=gamePort))
+                        thread.start()
                         connection.sendto(str.encode(msg),client_address)
 
                     else:
