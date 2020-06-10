@@ -2,8 +2,9 @@
 # Player class
 
 class Player:
-    def __init__(self, address, nickname, uid):
-        self.address = address
-        self.nickname = nickname
+    def __init__(self, uid, nickname, fullName, address):
         self.uid = uid
+        self.nickname = nickname
+        self.fullname = fullName
         self.hand = []
+        self.address = address

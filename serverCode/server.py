@@ -15,7 +15,7 @@ availablePortsCount = 15
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-server_address = ('localhost', 25000)
+server_address = ('0.0.0.0', 25000)
 print('starting up on %s port %s' % (server_address[0], server_address[1]))
 try:
     sock.bind(server_address)
@@ -23,7 +23,7 @@ except socket.error as e:
     str(e)
 
 # Listen for incoming connections
-sock.listen(10)
+sock.listen(15)
 
 while True:
 
@@ -46,6 +46,7 @@ while True:
                         gamePort = availablePorts.pop()
                         availablePortsCount -= 1
                         msg = "newTablePort;" + str(gamePort)
+                        # connectionThread = Thread
                         thread = Thread(target=gameInstance, name=data_split[1] + ": " + str(gamePort), kwargs=dict(owner=data_split[2], name=data_split[1], port=gamePort))
                         thread.start()
                         connection.sendto(str.encode(msg),client_address)

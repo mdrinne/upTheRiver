@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSocket
 import FirebaseAuth
+import Firebase
 
 class CreateTablePopUpViewController: UIViewController {
 
@@ -22,10 +23,17 @@ class CreateTablePopUpViewController: UIViewController {
     
     @IBOutlet weak var popUpView: UIView!
     
+    var SERVER = "192.168.1.249"
+    
+    var currentUser: User!
+    var db: Firestore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpElements()
+        db = Firestore.firestore()
+        getCurrentUser()
     }
 
     func setUpElements() {
@@ -35,6 +43,19 @@ class CreateTablePopUpViewController: UIViewController {
         Utilities.styleHollowButton(cancelButton)
         Utilities.styleFilledButton(createButton)
         popUpView.layer.cornerRadius = 20
+    }
+    
+    func getCurrentUser() {
+        db.collection("users").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments { (querySnapshot, error) in
+            if error != nil {
+                print("Error querying user documents: \(error!.localizedDescription)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.currentUser = User(fullName: document.get("fullName") as! String, username: document.get("username") as! String, uid: document.get("uid") as! String, inGame: document.get("inGame") as! Int)
+                }
+                
+            }
+        }
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -51,7 +72,7 @@ class CreateTablePopUpViewController: UIViewController {
     
     @IBAction func createTapped(_ sender: Any) {
         let tableName = tableNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let client = TCPClient(address: "localhost", port: 25000)
+        let client = TCPClient(address: SERVER, port: 25000)
         
         switch client.connect(timeout: 10) {
         case .success:
@@ -72,7 +93,9 @@ class CreateTablePopUpViewController: UIViewController {
                     case "newTablePort":
                         print(responseArray[1])
                         client.close()
-                        transitionToTable(port: String(responseArray[1]))
+                        let port = Int(String(responseArray[1]))!
+                    db.collection("tables").document(String(port)).setData(["name":tableName, "port":port])
+                        transitionToTable(port: port)
                         
                     case "noOpenPort":
                         // Add toast here!!!!!!!!!!!!!!!!!!!!!!!!
@@ -95,12 +118,39 @@ class CreateTablePopUpViewController: UIViewController {
         
     }
     
-    func transitionToTable(port: String) {
-        let tableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewController) as? TableViewController
-        
-        tableViewController?.port = port
-        view.window?.rootViewController = tableViewController
-        view.window?.makeKeyAndVisible()
+    func transitionToTable(port: Int) {
+        sleep(2)
+        let clientConnection = TCPClient(address: SERVER, port: Int32(port))
+        switch clientConnection.connect(timeout: 10) {
+        case .success:
+            let tableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewController) as? TableViewController
+            tableViewController?.clientConnection = clientConnection
+            tableViewController?.connectionOpen = 1
+            tableViewController?.port = port
+            tableViewController?.currentUser = currentUser
+            if userNicknameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+                tableViewController?.nickname = currentUser.username
+            } else {
+                tableViewController?.nickname = userNicknameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            view.window?.rootViewController = tableViewController
+            view.window?.makeKeyAndVisible()
+        case .failure(let error):
+            // ADD TOAST HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            print("[FAILED CONNECTION] failed to connect client to table")
+            print(error)
+        }
+//            let tableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewController) as? TableViewController
+//
+//            tableViewController?.port = port
+//            tableViewController?.currentUser = currentUser
+//            if userNicknameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+//                tableViewController?.nickname = currentUser.username
+//            } else {
+//                tableViewController?.nickname = userNicknameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//            }
+//            view.window?.rootViewController = tableViewController
+//            view.window?.makeKeyAndVisible()
     }
     
 }

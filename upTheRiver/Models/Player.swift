@@ -8,14 +8,14 @@
 
 import Foundation
 
-//class Player {
-//    let fullName: String
-//    let username: String
-//    let uid: String
-//    let nickname: String
-//    let cards: [String]
-//    
-//    init(fullName: String) {
-//        <#statements#>
-//    }
-//}
+class Player {
+    let fullName: String
+    let nickname: String
+    let uid: String
+    
+    init(fullName: String, nickname: String, uid: String) {
+        self.fullName = fullName
+        self.nickname = nickname
+        self.uid = uid
+    }
+}

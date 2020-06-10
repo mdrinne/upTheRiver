@@ -11,6 +11,7 @@ class Table:
         self.owner = owner
         self.name = name
         self.deck = []
+        self.deckCount = 0
         self.players = []
         self.playerCount = 0
         self.port = port
@@ -22,6 +23,7 @@ class Table:
 
     def setNewDeck(self):
         self.deck = newDeck
+        self.deckCount = 52
         self.lastUpdate = datetime.datetime.now()
 
     def addPlayer(self, newPlayer):
