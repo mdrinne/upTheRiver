@@ -123,9 +123,11 @@ class CreateTablePopUpViewController: UIViewController {
         let clientConnection = TCPClient(address: SERVER, port: Int32(port))
         switch clientConnection.connect(timeout: 10) {
         case .success:
+            print("[CONNECTED TO TABLE]")
             let tableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewController) as? TableViewController
             tableViewController?.clientConnection = clientConnection
             tableViewController?.connectionOpen = 1
+            tableViewController?.owner = 1
             tableViewController?.port = port
             tableViewController?.currentUser = currentUser
             if userNicknameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "" {

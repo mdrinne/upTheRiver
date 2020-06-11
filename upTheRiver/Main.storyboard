@@ -398,11 +398,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-Xr-YON">
+                                <rect key="frame" x="168" y="314" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Game"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yi7-RX-l2e">
+                                <rect key="frame" x="172" y="352" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="End Game"/>
+                                <connections>
+                                    <action selector="endGameButtonTapped:" destination="xfu-Mg-3Nt" eventType="touchUpInside" id="nCz-Be-VR4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dPx-6R-PeW"/>
                     </view>
                     <connections>
+                        <outlet property="endGameButton" destination="Yi7-RX-l2e" id="abR-Gc-B7c"/>
                         <outlet property="leabeTableButton" destination="IAI-Ir-rqn" id="phk-rb-Evw"/>
                         <outlet property="portLabel" destination="pDS-aH-far" id="bo8-lK-kCF"/>
                         <outlet property="tableNameLabel" destination="Hwi-an-hzx" id="NRO-Uu-V9y"/>

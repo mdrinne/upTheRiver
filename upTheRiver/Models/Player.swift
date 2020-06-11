@@ -9,13 +9,13 @@
 import Foundation
 
 class Player {
-    let fullName: String
-    let nickname: String
     let uid: String
+    let nickname: String
+    let fullName: String
     
-    init(fullName: String, nickname: String, uid: String) {
-        self.fullName = fullName
-        self.nickname = nickname
+    init(uid: String, nickname: String, fullName: String) {
         self.uid = uid
+        self.nickname = nickname
+        self.fullName = fullName
     }
 }

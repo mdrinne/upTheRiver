@@ -4,18 +4,32 @@
 import socket
 import sys
 from threading import Thread
-from gameHandler import gameInstance
+from gameHandler import GameHandler
+import gameHandler
 from Table import Table
+
+SERVER = socket.gethostbyname(socket.gethostname())
+PORT = 25000
+
 
 
 availablePorts = [25001,25002,25003,25004,25005,25006,25007,25008,25009,25010,25011,25012,25013,25014,25015]
 availablePortsCount = 15
 
+def addPortBack(port):
+    availablePorts.append(port)
+
+def createGameInstance(owner, name, port):
+    new_gamehandler = GameHandler(owner, name, port)
+    new_gamehandler.gameInstance()
+    addPortBack(port)
+    print(availablePorts)
+
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-server_address = ('0.0.0.0', 25000)
+server_address = (SERVER, PORT)
 print('starting up on %s port %s' % (server_address[0], server_address[1]))
 try:
     sock.bind(server_address)
@@ -47,13 +61,14 @@ while True:
                         availablePortsCount -= 1
                         msg = "newTablePort;" + str(gamePort)
                         # connectionThread = Thread
-                        thread = Thread(target=gameInstance, name=data_split[1] + ": " + str(gamePort), kwargs=dict(owner=data_split[2], name=data_split[1], port=gamePort))
+                        thread = Thread(target=createGameInstance, name=data_split[1] + ": " + str(gamePort), kwargs=dict(owner=data_split[2], name=data_split[1], port=gamePort))
                         thread.start()
                         connection.sendto(str.encode(msg),client_address)
-
+                        connection.close()
                     else:
                         msg = "noOpenPort"
                         connection.sendto(str.encode(msg), client_address)
+                        connection.close()
             else:
                 print('no more data from ', client_address)
                 break
