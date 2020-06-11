@@ -65,10 +65,12 @@ while True:
                         thread.start()
                         connection.sendto(str.encode(msg),client_address)
                         connection.close()
+                        break
                     else:
                         msg = "noOpenPort"
                         connection.sendto(str.encode(msg), client_address)
                         connection.close()
+                        break
             else:
                 print('no more data from ', client_address)
                 break

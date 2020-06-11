@@ -57,6 +57,11 @@ class Utilities {
         button.tintColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1)
     }
     
+    static func styleButton50Radius(  button:UIButton) {
+        
+        button.layer.cornerRadius = 25.0
+    }
+    
     static func styleLabelPrimary(  label:UILabel) {
         
         label.textColor = UIColor.init(red: 8/255, green: 201/255, blue: 147/255, alpha: 1)

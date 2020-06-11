@@ -6,5 +6,14 @@ class Player:
         self.uid = uid
         self.nickname = nickname
         self.fullname = fullName
-        self.hand = []
+        self.hand = ['none', 'none', 'none', 'none']
         self.address = address
+    
+    def getUid(self):
+        return self.uid
+    
+    def clearHand(self):
+        self.hand = ['none', 'none', 'none', 'none']
+    
+    def addToHand(self, card):
+        self.hand.append(card)

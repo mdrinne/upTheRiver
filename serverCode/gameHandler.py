@@ -18,6 +18,7 @@ class GameHandler:
         self.DISCONNECT = 'disconnect'
         self.ADD_PLAYER = 'addPlayer'
         self.CLOSE_TABLE = 'closeTable'
+        self.START_GAME = 'startGame'
 
     def sendAll(self, msg):
         message = msg.encode(self.FORMAT)
@@ -41,14 +42,39 @@ class GameHandler:
             table.addPlayerToQueue(new_player)
             print('%s: [PLAYER QUEUED] %s' % (self.table.name, new_player.uid))
 
-    def closeTableHandler(self):
-        # print('%s: [CLOSING TABLE]')
-        # msg = 'tableClosed'
-        # sendAll(msg)
-        for conn in connections:
-            conn.close()
+    def notifyTurn(self):
+        myTurn = self.table.whosTurn()
+        gameRound = self.table.round
+        myHand = myTurn.hand
+        print('[PRINTING MY HAND] %s' % myHand)
+        cards = ''
+        for i in range(0,4):
+            myCard = myHand[i]
+            if type(myCard) is tuple:
+                if i != 0:
+                    cards += ','
+                cards += myCard[0] + myCard[1]
+        if cards == '':
+            cards = 'noCards'         
+        msg = 'notifyTurn;' + str(gameRound) + ';' + myTurn.uid + ';' + cards
+        self.sendAll(msg)
+        
+    
+    def startGameHandler(self):
+        self.table.startGame()
+        msg = "gameStarted"
+        self.sendAll(msg)
+        self.notifyTurn()
 
-        self.game_open = 0
+
+    # def closeTableHandler(self):
+    #     # print('%s: [CLOSING TABLE]')
+    #     # msg = 'tableClosed'
+    #     # sendAll(msg)
+    #     for conn in connections:
+    #         conn.close()
+
+    #     self.game_open = 0
 
 
     def clientHandler(self, conn, addr):
@@ -67,8 +93,12 @@ class GameHandler:
                     connected = False
                 elif msg[0] == self.ADD_PLAYER:
                     self.addPlayerHandler(msg, addr)
-                elif msg[0] == self.CLOSE_TABLE:
-                    self.closeTableHandler()
+                elif msg[0] == self.START_GAME:
+                    self.startGameHandler()
+                # elif msg[0] == self.CLOSE_TABLE:
+                #     self.closeTableHandler()
+                else:
+                    print('%s: [NO HANDLER] %s' % (self.table.name, msg[0]))
 
                 print('%s: [%s] %s' % (self.table.name, addr, msg))
 
@@ -97,7 +127,6 @@ class GameHandler:
             # Wait for connection
             print('%s: [WAITING FOR CONNECTION] port: %s' % (self.table.name, self.table.port))
             conn, client_address = gameServer.accept()
-            # print('%s: [CONNECTION ACCEPTED]')
             self.connections.append(conn)
             clientThread = Thread(target=self.clientHandler, args=(conn,client_address))
             clientThread.start()
