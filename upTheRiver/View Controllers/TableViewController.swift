@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSocket
+import FirebaseAuth
 
 extension String {
     subscript(i: Int) -> String {
@@ -43,6 +44,7 @@ class TableViewController: UIViewController {
     @IBOutlet weak var myCard3: UIImageView!
     @IBOutlet weak var myCard4: UIImageView!
     
+    @IBOutlet weak var currentTurnCardView: UIStackView!
     @IBOutlet weak var currentTurnCard1: UIImageView!
     @IBOutlet weak var currentTurnCard2: UIImageView!
     @IBOutlet weak var currentTurnCard3: UIImageView!
@@ -96,7 +98,16 @@ class TableViewController: UIViewController {
     }
     
     func roundOneTurnSetup(player: String) {
-        print(player)
+        if Auth.auth().currentUser!.uid == player {
+            DispatchQueue.main.async {
+                UIView.transition(with: self.view, duration: 1, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
+                    self.currentTurnCardView.isHidden = true
+                })
+                UIView.transition(with: self.view, duration: 1, options: .transitionCrossDissolve, animations: {
+                    self.redBlackStackView.isHidden = false
+                })
+            }
+        }
     }
     
     func notifyTurn(turnDetails: [String]) {

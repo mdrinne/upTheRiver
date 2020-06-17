@@ -50,5 +50,5 @@ class Table:
         self.newTracker()
         self.lastUpdate = datetime.datetime.now()
     
-    def whosTurn(self):
+    def whoseTurn(self):
         return self.players[self.playerIndex]

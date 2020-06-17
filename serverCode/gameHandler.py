@@ -43,7 +43,7 @@ class GameHandler:
             print('%s: [PLAYER QUEUED] %s' % (self.table.name, new_player.uid))
 
     def notifyTurn(self):
-        myTurn = self.table.whosTurn()
+        myTurn = self.table.whoseTurn()
         gameRound = self.table.round
         myHand = myTurn.hand
         print('[PRINTING MY HAND] %s' % myHand)

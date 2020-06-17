@@ -476,7 +476,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sy5-Uv-Z6i">
-                                <rect key="frame" x="77" y="310.5" width="260" height="50"/>
+                                <rect key="frame" x="77" y="423" width="260" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5j-fB-lPa">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
@@ -513,11 +513,11 @@
                             <constraint firstItem="rbk-Xr-YON" firstAttribute="centerX" secondItem="vCE-w6-miW" secondAttribute="centerX" id="C6S-Gp-HnE"/>
                             <constraint firstItem="dPx-6R-PeW" firstAttribute="bottom" secondItem="DKW-T0-I4C" secondAttribute="bottom" constant="20" id="GC4-0n-SFA"/>
                             <constraint firstItem="DKW-T0-I4C" firstAttribute="leading" secondItem="dPx-6R-PeW" secondAttribute="leading" constant="20" id="P1m-M6-9Lu"/>
-                            <constraint firstItem="Fzc-5V-9U2" firstAttribute="top" secondItem="sy5-Uv-Z6i" secondAttribute="bottom" constant="30" id="a4A-en-KBs"/>
                             <constraint firstItem="DKW-T0-I4C" firstAttribute="centerX" secondItem="vCE-w6-miW" secondAttribute="centerX" id="c7w-sC-SFU"/>
                             <constraint firstItem="Fzc-5V-9U2" firstAttribute="leading" secondItem="dPx-6R-PeW" secondAttribute="leading" constant="20" id="dOu-qw-CUI"/>
                             <constraint firstItem="sy5-Uv-Z6i" firstAttribute="centerX" secondItem="vCE-w6-miW" secondAttribute="centerX" id="dP7-5w-eDI"/>
                             <constraint firstItem="rbk-Xr-YON" firstAttribute="top" secondItem="dPx-6R-PeW" secondAttribute="top" id="dVK-VM-oo3"/>
+                            <constraint firstItem="sy5-Uv-Z6i" firstAttribute="centerY" secondItem="vCE-w6-miW" secondAttribute="centerY" id="dhS-G3-lvN"/>
                             <constraint firstItem="dPx-6R-PeW" firstAttribute="trailing" secondItem="DKW-T0-I4C" secondAttribute="trailing" constant="20" id="eaF-Fq-Chi"/>
                             <constraint firstItem="Fzc-5V-9U2" firstAttribute="centerY" secondItem="vCE-w6-miW" secondAttribute="centerY" id="sO9-QB-nOv"/>
                             <constraint firstItem="IAI-Ir-rqn" firstAttribute="top" secondItem="dPx-6R-PeW" secondAttribute="top" id="sgy-5Y-zdv"/>
@@ -531,6 +531,7 @@
                         <outlet property="currentTurnCard2" destination="5gc-O0-1tb" id="r5z-LQ-eWP"/>
                         <outlet property="currentTurnCard3" destination="gfL-3f-0DU" id="O5f-aX-bUN"/>
                         <outlet property="currentTurnCard4" destination="AWL-BU-9Pg" id="o73-E4-ess"/>
+                        <outlet property="currentTurnCardView" destination="Fzc-5V-9U2" id="wBs-dq-RgG"/>
                         <outlet property="endGameButton" destination="Yi7-RX-l2e" id="abR-Gc-B7c"/>
                         <outlet property="leabeTableButton" destination="IAI-Ir-rqn" id="phk-rb-Evw"/>
                         <outlet property="myCard1" destination="t7y-bt-JUS" id="kOS-33-ir8"/>
